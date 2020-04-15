@@ -44,57 +44,166 @@ class Historique extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0,bottom: 8.0),
-                child: Row(
+               Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                     Text(
-                       trip.title,
-                       style: TextStyle(color: Colors.black, fontSize: 20,fontFamily: 'Quicksand',fontWeight: FontWeight.bold)
-                     ),
-                     Spacer()
-                  ],
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0,bottom: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text( "${DateFormat('dd/MM/yyyy').format(trip.startDate).toString()} - ${DateFormat('dd/MM/yyyy').format(trip.endDate).toString()}" ,
-                    style: TextStyle(color: Colors.grey, fontSize: 16,fontFamily: 'Quicksand')
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.directions_car), 
-                      onPressed: null
-                    ),
+                     _iconDestination(),
+                    _originAndDestionation(),
+                    _chauffeurDesign(),
                     
                   ],
                 ),
-              ),
-             
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0,bottom: 8.0),
-                child: Row(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Text(
-                      "\$${trip.price.toStringAsFixed(2)}",
-                      style: TextStyle(color: Colors.green, fontSize: 24,fontFamily: 'Quicksand',fontWeight: FontWeight.bold)
-                    ),
-                    Spacer(),
-                    Text(
-                      trip.car,
-                      style: TextStyle(color: Colors.black, fontSize: 16,fontFamily: 'Quicksand')
-                    )
+                    _prixDesign()
                   ],
-                ),
-              )
+                )
+              
             ],
           ),
         ),
       ),
     );
   }
+
+  Widget _iconDestination() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Icon(Icons.directions_car, color: Color(0xFFF00d5d8)),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFF00d5d8),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.fiber_manual_record,color: Color(0xFFFf89380),size: 6),
+          Icon(Icons.location_on,color: Color(0xFFFf89380)),
+        ],
+      ),
+    );
+  }
+
+ Widget _prixDesign() {
+
+   return Column(
+        children: <Widget>[
+           Text(
+              "\$${25.50.toStringAsFixed(2)}",
+              style: TextStyle(
+                fontSize: 25,
+                color: Color(0xFFF00d5d8),
+                fontFamily: 'Quicksand',
+                fontWeight: FontWeight.bold
+              )
+            ),
+        ],
+     );
+
+ } 
+
+Widget _chauffeurDesign(){
+
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+     Row(
+       crossAxisAlignment: CrossAxisAlignment.center,
+       children: <Widget>[
+         Text(
+            "Max Dedou",
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: 'Quicksand',
+              fontWeight: FontWeight.bold
+            )
+          ),
+          SizedBox(width: 10),
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/maxio.jpg'),
+          )
+       ],
+     ),
+
+      Text(
+        "CK231KV",
+        style: TextStyle(
+          fontSize: 20,
+          fontFamily: 'Quicksand',
+          fontWeight: FontWeight.bold
+        )
+      ),
+
+    ],
+  );
+}
+
+Widget _originAndDestionation(){
+
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: "Départ \n",
+            style: TextStyle(color: Color(0xFFFb7b7c5),fontSize: 14,fontFamily: 'Quicksand')
+            ),
+            TextSpan(text: "Koumassi",
+            style: TextStyle(fontSize: 17,color: Colors.black,fontFamily: 'Quicksand'),
+            )
+          ]
+        ),
+      ),
+
+      RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: "Mer 15, 16:12",
+            style: TextStyle(color: Color(0xFFFb7b7c5),fontSize: 14,fontFamily: 'Quicksand')
+            )
+          ]
+        ),
+      ),      
+
+      SizedBox(height: 65),
+
+       RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: "Destination \n",
+            style: TextStyle(color: Color(0xFFFb7b7c5),fontSize: 14,fontFamily: 'Quicksand')
+            ),
+            TextSpan(text: "Deux Plateaux",
+            style: TextStyle(fontSize: 17,color: Colors.black,fontFamily: 'Quicksand'),
+            )
+          ]
+        ),
+      ),
+      RichText(
+        text: TextSpan(
+          children: <TextSpan>[
+            TextSpan(text: "Mer 15, 17:12",
+            style: TextStyle(color: Color(0xFFFb7b7c5),fontSize: 14,fontFamily: 'Quicksand')
+            )
+          ]
+        ),
+      ), 
+
+    ],
+
+  );
+
+}
 
 }
