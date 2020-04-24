@@ -1,7 +1,7 @@
 import 'package:drawer/historique.dart';
-import 'package:drawer/portefeuille.dart';
 import 'package:drawer/profile.dart';
 import 'package:drawer/reservation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:async';
@@ -163,25 +163,6 @@ class HomePage extends StatelessWidget {
                 );
               }  
            ),
-           Divider(),
-            new ListTile(
-              title: new Text(
-              'Portefeuille', 
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black
-              ),
-            ),
-              trailing: Icon(Icons.credit_card,color: Colors.black),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(
-                  new MaterialPageRoute(builder: (BuildContext context) => new Portefeuille(title: "Portefeuille"))
-                );
-              }
-           ),
           Divider(), 
           new ListTile(
               title: new Text(
@@ -194,6 +175,53 @@ class HomePage extends StatelessWidget {
               ),
             ),
             trailing: Icon(Icons.power_settings_new,color: Colors.black),
+            onTap: () {
+               Navigator.of(context).pop();
+               showDialog(
+                 context: context,
+                 builder: (BuildContext context) =>   CupertinoAlertDialog(
+                    title: new Text(
+                      "Déconnexion",
+                      style: TextStyle(
+                        fontSize: 18,color: Colors.black,fontFamily: 'Quicksand',fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    content: new Text(
+                      "Etes vous sur de vouloir vous déconnecter?",
+                      style: TextStyle(
+                        fontSize: 16,color: Colors.black,fontFamily: 'Quicksand'
+                      ),
+                    ),
+                    actions: <Widget>[
+                      CupertinoDialogAction(
+                        isDefaultAction: true,
+                        child: Text(
+                          "Confirmer",
+                        style: TextStyle(
+                            fontSize: 17,color: Colors.blue,fontFamily: 'Quicksand'
+                        ),
+                      ),
+                      onPressed: (){
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                      CupertinoDialogAction(
+                        child: Text(
+                          "Annuler",
+                          style: TextStyle(
+                            fontSize: 17,color: Colors.blue,fontFamily: 'Quicksand'
+                          ),                      
+                        ),
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        }
+                      )
+                    ],
+                )
+              ); 
+
+            },
+
            ),
 
           ],

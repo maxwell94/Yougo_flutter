@@ -1,6 +1,5 @@
 import './trip.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class Historique extends StatelessWidget {
   
@@ -34,9 +33,7 @@ class Historique extends StatelessWidget {
     );
   }
 
-  Widget buildTripCard(BuildContext context, int index) {
-
-    final trip = tripsList[index];
+   Widget buildTripCard(BuildContext context, int index) {
 
     return new Container(
       child: Card(
@@ -68,6 +65,7 @@ class Historique extends StatelessWidget {
   }
 
   Widget _iconDestination() {
+
     return Container(
       child: Column(
         children: <Widget>[
@@ -110,7 +108,7 @@ class Historique extends StatelessWidget {
 
  } 
 
-Widget _chauffeurDesign(){
+Widget _chauffeurDesign() {
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
