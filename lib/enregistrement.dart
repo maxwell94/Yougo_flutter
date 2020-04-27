@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './login.dart';
+import './verification_code_page.dart'; 
 
 class Enregistrement extends StatelessWidget {
 
@@ -142,7 +143,11 @@ class Enregistrement extends StatelessWidget {
                     color: Colors.green,
                     elevation: 10.0,
                     child: GestureDetector(
-                      onTap: (){} ,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          new MaterialPageRoute(builder: (BuildContext context) => VerificationCodePage() )
+                        );
+                      } ,
                       child: Center(
                         child: Text(
                         'SIGN UP',

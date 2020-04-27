@@ -81,6 +81,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_verification_code_input:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "77b8fa5eba87db88b0841e802282b36e9a33174f"
+      url: "git://github.com/tiny-express/flutter_verification_code_input"
+    source: git
+    version: "0.1.2"
   google_maps_flutter:
     dependency: "direct dev"
     description:
