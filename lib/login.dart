@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                       borderSide: BorderSide(color: Colors.green)
                     ),
                   ),
-                  style: TextStyle(
+                  style: TextStyle (
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
